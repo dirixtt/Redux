@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.incoming-message {
   display: flex;
-  flex-direction: column;
+  position: relative;
+  flex-direction: row;
   align-items: center;
+  border-radius: 10px;
+  border-bottom-right-radius: 0;
+  max-width: 550px;
+  background-color: #B39090;
+  margin-bottom: 1rem;
+  padding: 5px 10px;
+  min-width: 30px;
+  flex-wrap: wrap;
+
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.outgoing-message {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  max-width: 550px;
+  padding: 5px 10px;
+
+  background-color: #D8C0C0;
+  margin-bottom: 1rem;
+  min-width: 30px;
+  flex-wrap: wrap;
+}
+
+.incoming-img {
+  margin-left: 0.5rem;
+  min-width: 35px;
+  max-width: 35px;
+  right: -40px;
+  bottom: -10px;
+  position: absolute;
+  min-height: 35px;
+
+  max-height: 35px;
+  border-radius: 50%;
+}
+
+.outgoing-img {
+  margin-left: 0.5rem;
+  min-width: 35px;
+  max-width: 35px;
+  left: -48px;
+  bottom: -10px;
+  position: absolute;
+  min-height: 35px;
+  max-height: 35px;
+  border-radius: 50%;
+}
+.typing-container {
+  display: flex;
+  align-items: flex-end;
+  width: 70px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #D8C0C0;
+  height: 30px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.typing-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 10px;
+  opacity: 0;
+  animation: typing 1s infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 1;
+    transform: translateY(-7px);
   }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+.icon{
+  color: #B39090 !important;
+  outline: none;
+  
+}
+.PhoneInputCountrySelect {
+  background-color: #D9D9D9;
+  padding: 10px;
+}
+.PhoneInputInput{
+  background-color: transparent;
+}
+.bg-blur{
+  backdrop-filter: blur(10px);
+  
 }
